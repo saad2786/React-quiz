@@ -1,11 +1,14 @@
 import React from 'react'
+import { useQuiz } from '../context/QuizContext'
 import Option from './Option'
 
-export default function Question({ question, dispatch, answer }) {
+export default function Question() {
+  const { questions, index } = useQuiz()
+
   return (
     <div>
-      <h3>{question.question}</h3>
-      <Option question={question} dispatch={dispatch} answer={answer} />
+      <h3>{questions[index].question}</h3>
+      <Option />
     </div>
   )
 }
